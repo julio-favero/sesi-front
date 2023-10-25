@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.07bc5d47.css",
+    "main.js": "/static/js/main.9b2fadde.js",
+    "static/media/atleta.png": "/static/media/atleta.0493ffee98732b403cdb.png",
+    "static/media/logo2.jpg": "/static/media/logo2.431a611558f969d98658.jpg",
+    "static/media/logo.png": "/static/media/logo.5fb74ce9df1c02a86566.png",
+    "index.html": "/index.html",
+    "main.07bc5d47.css.map": "/static/css/main.07bc5d47.css.map",
+    "main.9b2fadde.js.map": "/static/js/main.9b2fadde.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07bc5d47.css",
+    "static/js/main.9b2fadde.js"
+  ]
+}
