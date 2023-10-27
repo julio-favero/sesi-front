@@ -8,7 +8,7 @@ function Tabela({ atleta }) {
 
 
   useEffect(() => {
-    Axios.get(`http://localhost:3001/medico/verExameEnviado/${atleta}`)
+    Axios.get(`http://${vmIP.server_ip_port}/medico/verExameEnviado/${atleta}`)
       .then((response) => response.data)
       .then((response) => {
         console.log(response)
@@ -46,7 +46,7 @@ function Tabela({ atleta }) {
 
   function avaliar() {
 
-    Axios.put(`http://localhost:3001/medico/avaliarExame/${idexame}`, {
+    Axios.put(`http://${vmIP.server_ip_port}/medico/avaliarExame/${idexame}`, {
       situacao : situacao
     }).then((response) => console.log(response))
     .then((response) => alert(response.msg))

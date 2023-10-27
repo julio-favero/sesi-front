@@ -21,7 +21,7 @@ function AvalicacoesPendentes({idMedico}) {
   const [cpf, setCpf] = useState("")
 
   useEffect(() => {
-    Axios.get(`http://localhost:3001/medico/pending/${idMedico}`)
+    Axios.get(`http://${vmIP.server_ip_port}/medico/pending/${idMedico}`)
       .then((res) => {
         array_nomes = []
         array_cpf = []

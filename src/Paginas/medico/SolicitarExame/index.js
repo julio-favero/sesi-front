@@ -23,7 +23,7 @@ function SolicitarExame({ cpfSolicited }) {
 
 
   useEffect(() => {
-    Axios.get('http://localhost:3001/medico/notSolicited')
+    Axios.get('http://${vmIP.server_ip_port}/medico/notSolicited')
     .then((res) =>{
         array_nomes = []
         array_modalidade = []
@@ -45,7 +45,7 @@ function enviar_exame(){
     var formData = new FormData();
     formData.append("pdfexame", arquivo);
     formData.append("id_exame_atl", id_usable);
-    Axios.post('http://localhost:3001/medico/solicitarExame', formData, {
+    Axios.post('http://${vmIP.server_ip_port}/medico/solicitarExame', formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

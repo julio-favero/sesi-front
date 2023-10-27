@@ -120,7 +120,7 @@ const Gestor = () => {
   };
 
   const cadastro = () =>{
-    axios.post("http://localhost:3001/cadastro", {
+    axios.post("http://${vmIP.server_ip_port}/cadastro", {
       cargo: "Gestor",
       cpf: parseInt(cpf),
       nome: primeiro_nome,

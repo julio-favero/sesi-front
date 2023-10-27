@@ -15,7 +15,7 @@ function AvalicacoesRecebidas({ atleta }) {
 
 
   useEffect(() => {
-    axios.post('http://localhost:3001/medicoConv/verAtletas', {
+    axios.post('http://${vmIP.server_ip_port}/medicoConv/verAtletas', {
       atletas : atleta
     })
     .then((response) => response.data)

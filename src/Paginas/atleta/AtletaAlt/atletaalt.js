@@ -5,11 +5,12 @@ import Axios from 'axios'
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import vmIP from "../../../config/configPort.json";
 
 function AlterarPerfil() {
 
   useEffect(() => {
-    Axios.get(`http://localhost:3001/atleta/${email}`)
+    Axios.get(`http://${vmIP.server_ip_port}/atleta/${email}`)
       .then((res) => {
         setCpf(res.data[0].cpf)
         setModalidade(res.data[0].modalidade)
@@ -75,7 +76,7 @@ function AlterarPerfil() {
       toast.error("Houve um erro!");
     }
     else{
-      Axios.put("http://localhost:3001/atleta/atualizarAtleta", {
+      Axios.put("http://${vmIP.server_ip_port}/atleta/atualizarAtleta", {
         email: email,
         tipo_tel: tipotel,
         telefone: numero
@@ -97,7 +98,7 @@ function AlterarPerfil() {
     let confirm_password = document.getElementById("confirm_password").value;
 
     if (password === confirm_password) {
-      Axios.put("http://localhost:3001/atleta/atualizarAtleta", {
+      Axios.put("http://${vmIP.server_ip_port}/atleta/atualizarAtleta", {
         email: email,
         senha: senha,
         senha_nova: senha_nova

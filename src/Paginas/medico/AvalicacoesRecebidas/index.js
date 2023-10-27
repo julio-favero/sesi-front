@@ -22,7 +22,7 @@ function AvalicacoesRecebidas({idMedico}) {
   const [validar, setValidar] = useState(false)
 
   useEffect(() => {
-    Axios.get(`http://localhost:3001/medico/solicited/${idMedico}`)
+    Axios.get(`http://${vmIP.server_ip_port}/medico/solicited/${idMedico}`)
       .then((res) => {
         array_nomes = []
         array_id = []

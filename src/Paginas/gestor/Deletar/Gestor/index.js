@@ -41,7 +41,7 @@ function Gestor(props) {
   };
 
   const buscar = () => {
-    axios.post("http://localhost:3001/listarTodos",{
+    axios.post("http://${vmIP.server_ip_port}/listarTodos",{
       cargo: props.cargo,
       cpf: cpf,
     })
@@ -58,7 +58,7 @@ function Gestor(props) {
   }
 
   const deletar = () =>{
-    axios.post('http://localhost:3001/deletar', {
+    axios.post('http://${vmIP.server_ip_port}/deletar', {
       cargo: props.cargo,
       cpf: cpf
     })

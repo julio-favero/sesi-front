@@ -183,7 +183,7 @@ const Atleta = (props) => {
 
   
   const buscar = () => {
-    axios.post("http://localhost:3001/listarAtleta",{
+    axios.post("http://${vmIP.server_ip_port}/listarAtleta",{
       cpf: cpf,
     })
     .then((res) => {
@@ -214,7 +214,7 @@ const Atleta = (props) => {
   }
 
   const alterar = () => {
-    axios.put('http://localhost:3001/alterar',{
+    axios.put('http://${vmIP.server_ip_port}/alterar',{
       cpf: cpf,
       nome: nome,
       modalidade: modalidade,

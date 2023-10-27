@@ -6,6 +6,7 @@ import "./style.css";
 import Axios from "axios";
 import { Button } from "react-bootstrap"; 
 import { toast } from 'react-toastify'
+import vmIP from "../../config/configPort.json";
 
 function Login() {
 
@@ -13,7 +14,7 @@ function Login() {
   const [pswd, setPassword] = useState("");
 
   function handleLogin() {
-    Axios.post("http://localhost:3001/login", {
+    Axios.post(`http://${vmIP.server_ip_port}/login`, {
       email: emailAccount,
       senha: pswd,
     }).then((response) => {

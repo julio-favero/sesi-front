@@ -68,7 +68,7 @@ const Medico_parceiro = (props) => {
   };
 
   const buscar = () => {
-    axios.post("http://localhost:3001/listarTodos",{
+    axios.post("http://${vmIP.server_ip_port}/listarTodos",{
       cargo: props.cargo,
       cpf: cpf,
     })
@@ -92,7 +92,7 @@ const Medico_parceiro = (props) => {
   }
 
   const alterar = () => {
-    axios.put('http://localhost:3001/alterar',{
+    axios.put('http://${vmIP.server_ip_port}/alterar',{
       cargo: props.cargo,
       cpf: cpf,
       nome: primeiro_nome,

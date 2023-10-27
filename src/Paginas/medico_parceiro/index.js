@@ -4,7 +4,9 @@ import AvalicacoesRecebidas from "./AvalicacoesRecebidas";
 import Header from '../../componentes/Header/Header'
 import { useParams } from 'react-router-dom';
 
-import axios from "axios"
+import axios from "axios";
+
+import vmIP from "../../config/configPort.json";
 
 const Medico = () => {
 
@@ -21,7 +23,7 @@ const Medico = () => {
   ];
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/medicoConv/verMedicoConv/${email}`)
+    axios.get(`http://${vmIP.server_ip_port}/medicoConv/verMedicoConv/${email}`)
     .then((response) => response.data)
     .then((response) =>{
       setNome(response.nome)
@@ -31,7 +33,7 @@ const Medico = () => {
   }, [])
 
   function verSolicitacoes(){
-    axios.get(`http://localhost:3001/medicoConv/verSolicitacoes/${email}`)
+    axios.get(`http://${vmIP.server_ip_port}/medicoConv/verSolicitacoes/${email}`)
     .then((response) => response.data)
     .then((response) => {
       setAtletas(response)

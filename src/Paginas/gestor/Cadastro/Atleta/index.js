@@ -283,7 +283,7 @@ setDefaultLocale('pt-BR'); // Definir o calendário como BR
 
   //  ---------------- Back-End CADASTRO ----------------
   const cadastro = () =>{
-    axios.post("http://localhost:3001/cadastro", {
+    axios.post("http://${vmIP.server_ip_port}/cadastro", {
       cpf: parseInt(cpf),
       nome: primeiro_nome,
       senha: senha,

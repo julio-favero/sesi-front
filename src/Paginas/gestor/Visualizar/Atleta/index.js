@@ -16,7 +16,7 @@ const Atleta = () => {
 
   let atleta = []
   useEffect(() => {
-    axios.post("http://localhost:3001/listar",{
+    axios.post("http://${vmIP.server_ip_port}/listar",{
       cargo: 'Atleta'
     })
     .then((res) => {

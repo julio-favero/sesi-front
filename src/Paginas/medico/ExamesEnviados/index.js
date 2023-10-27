@@ -8,7 +8,7 @@ import {saveAs} from 'file-saver';
 function Tabela({id}) {
 
   useEffect(() => {
-      Axios.get(`http://localhost:3001/medico/verExameEnviado/${id}`)
+      Axios.get(`http://${vmIP.server_ip_port}/medico/verExameEnviado/${id}`)
       .then((response) => response.data)
       .then((response) => {
         setDownload(response.msg)
@@ -34,12 +34,12 @@ function Tabela({id}) {
 
 
     if (telaSim === 'sim'){
-        Axios.post(`http://localhost:3001/medico/nome_medico_cov`,{
+        Axios.post(`http://${vmIP.server_ip_port}/medico/nome_medico_cov`,{
           nome: nomeMDC,
           idexame: id_exame
      })}
     else{
-      Axios.put('http://localhost:3001/medico/att_stiuacao',{
+      Axios.put('http://${vmIP.server_ip_port}/medico/att_stiuacao',{
         idatleta: id,
         situacao: situacao
       }).then((res) => console.log(res))

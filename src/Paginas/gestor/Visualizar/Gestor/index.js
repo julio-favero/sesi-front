@@ -10,7 +10,7 @@ const Gestor = () => {
 
   let gestores = []
   useEffect(() => {
-    axios.post("http://localhost:3001/listar",{
+    axios.post("http://${vmIP.server_ip_port}/listar",{
       cargo: 'Gestor'
     })
     .then((res) => {

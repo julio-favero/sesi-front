@@ -5,6 +5,8 @@ import Axios from "axios";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import vmIP from "../../../config/configPort.json";
+
 function AvalicacoesPendentes(props) {
   const { email } = useParams();
   let arrayTipo = []
@@ -27,7 +29,7 @@ function AvalicacoesPendentes(props) {
   useEffect(() => {
     arrayTipo = []
     arrayIndex = []
-    Axios.get(`http://localhost:3001/atleta/verExamesSolicitados/${email}`)
+    Axios.get(`http://${vmIP.server_ip_port}/atleta/verExamesSolicitados/${email}`)
       .then((res) => {
         setDados(res.data);
         for(let x = 0; x < res.data.length; x++){
@@ -44,7 +46,7 @@ function AvalicacoesPendentes(props) {
 
   useEffect(() => {
     if (deletarurl === true) {
-      Axios.put(`http://localhost:3001/atleta/modificarPdf/${email}`, {
+      Axios.put(`http://${vmIP.server_ip_port}/atleta/modificarPdf/${email}`, {
         decisao: false,
       })
         .then((res) => res)
@@ -57,7 +59,7 @@ function AvalicacoesPendentes(props) {
 
   useEffect(() => {
     console.log(props.props)
-    Axios.get(`http://localhost:3001/atleta/visualizarGuia/${props.props}`)
+    Axios.get(`http://${vmIP.server_ip_port}/atleta/visualizarGuia/${props.props}`)
     .then((response) => response.data)
     .then((response) => {
       setDownload(response.msg)
@@ -76,7 +78,7 @@ function downloadFile(id_exame){
       var formData = new FormData();
     formData.append("pdfatleta", arquivo);
     formData.append("idexame", id_exame)
-    Axios.put(`http://localhost:3001/atleta/enviarPdf/${email}`, formData,{
+    Axios.put(`http://${vmIP.server_ip_port}/atleta/enviarPdf/${email}`, formData,{
       headers: {
         "Content-Type": "multipart/form-data",
       },

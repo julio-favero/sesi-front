@@ -9,6 +9,10 @@ import Header from "../../componentes/Header/Header";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+
+import vmIP from "../../config/configPort.json";
+
+
 const Medico = () => {
   const [activeTab, setActiveTab] = useState("tab1");
   const { email } = useParams()
@@ -25,7 +29,7 @@ const Medico = () => {
   ];
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/verGestor/${email}`)
+    axios.get(`http://${vmIP.server_ip_port}/verGestor/${email}`)
     .then((response) => response.data)
     .then((response) => {
       setNome(response.nome)

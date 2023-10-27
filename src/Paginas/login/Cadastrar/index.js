@@ -11,12 +11,12 @@ export default function App() {
   console.log(listCard);
 
   const handleRegisterGame = () => {
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("http://${vmIP.server_ip_port}/register", {
       name: values.name,
       gols: values.gols,
     })
     .then(() => {
-      Axios.post("http://localhost:3001/search", {
+      Axios.post("http://${vmIP.server_ip_port}/search", {
         name: values.name,
         gols: values.gols,
       })
@@ -34,7 +34,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/getCards").then((response) => {
+    Axios.get("http://${vmIP.server_ip_port}/getCards").then((response) => {
       setListCard(response.data);
     });
   }, []);

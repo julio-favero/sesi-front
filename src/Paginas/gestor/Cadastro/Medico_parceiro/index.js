@@ -145,7 +145,7 @@ const Medico_parceiro = () => {
   };
 
   const cadastro = () =>{
-    axios.post("http://localhost:3001/cadastro", {
+    axios.post("http://${vmIP.server_ip_port}/cadastro", {
       cargo: "Médico-Convidado",
       nome: primeiro_nome,
       cpf: parseInt(cpf),

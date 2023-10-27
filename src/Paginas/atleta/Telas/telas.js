@@ -22,7 +22,7 @@ const Telas = () => {
   const [id, setId] = useState('')
 
   useEffect(() => {
-    axios.post('http://localhost:3001/atleta/listar', {
+    axios.post('http://${vmIP.server_ip_port}/atleta/listar', {
       email : email
     }).then((response) => response.data)
     .then((response) => {
