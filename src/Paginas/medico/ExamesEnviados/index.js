@@ -3,7 +3,7 @@ import './table.css';
 import { Button, Table, Modal, Form, Container } from 'react-bootstrap';
 import Axios from 'axios';
 import {saveAs} from 'file-saver';
-
+import vmIP from "../../../config/configPort.json";
 
 function Tabela({id}) {
 
@@ -39,7 +39,7 @@ function Tabela({id}) {
           idexame: id_exame
      })}
     else{
-      Axios.put('http://${vmIP.server_ip_port}/medico/att_stiuacao',{
+      Axios.put(`http://${vmIP.server_ip_port}/medico/att_stiuacao`,{
         idatleta: id,
         situacao: situacao
       }).then((res) => console.log(res))

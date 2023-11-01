@@ -4,6 +4,8 @@ import { Button, Table, Form } from "react-bootstrap";
 import SolicitarExame from "../SolicitarExame";
 import Axios from "axios"
 
+import vmIP from "../../../config/configPort.json"
+
 let array_nomes = []
 let array_cpf = []
 

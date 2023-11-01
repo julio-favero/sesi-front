@@ -4,6 +4,8 @@ import { Button, Table, Modal, Form, Container } from 'react-bootstrap';
 import { saveAs } from 'file-saver';
 import Axios from 'axios'
 
+import vmIP from "../../../config/configPort.json"
+
 function Tabela({ atleta }) {
 
 

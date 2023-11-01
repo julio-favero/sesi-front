@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import Card from "../Cards/cards";
 import './style.css'
+import vmIP from "../../../config/configPort.json";
 
 export default function App() {
   const [values, setValues] = useState();
@@ -11,12 +12,12 @@ export default function App() {
   console.log(listCard);
 
   const handleRegisterGame = () => {
-    Axios.post("http://${vmIP.server_ip_port}/register", {
+    Axios.post(`http://${vmIP.server_ip_port}/register`, {
       name: values.name,
       gols: values.gols,
     })
     .then(() => {
-      Axios.post("http://${vmIP.server_ip_port}/search", {
+      Axios.post(`http://${vmIP.server_ip_port}/search`, {
         name: values.name,
         gols: values.gols,
       })
@@ -34,7 +35,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    Axios.get("http://${vmIP.server_ip_port}/getCards").then((response) => {
+    Axios.get(`http://${vmIP.server_ip_port}/getCards`).then((response) => {
       setListCard(response.data);
     });
   }, []);

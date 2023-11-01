@@ -6,6 +6,8 @@ import Medico_parceiro from "../Visualizar/Medico_parceiro/index";
 import Gestor from "../Visualizar/Gestor/index";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
+import vmIP from "../../../config/configPort.json";
+
 
 const Visualizar = () => {
   const [tela, setTela] = React.useState("Atleta");

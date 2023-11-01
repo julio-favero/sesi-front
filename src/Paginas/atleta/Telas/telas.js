@@ -7,6 +7,8 @@ import AlterarPerfil from "../AtletaAlt/atletaalt";
 import AvalicacoesPendentes from "../Enviar/enviar";
 import Header from "../../../componentes/Header/Header";
 
+import vmIP from "../../../config/configPort.json";
+
 const Telas = () => {
   const [activeTab, setActiveTab] = useState("tab1");
 
@@ -22,7 +24,7 @@ const Telas = () => {
   const [id, setId] = useState('')
 
   useEffect(() => {
-    axios.post('http://${vmIP.server_ip_port}/atleta/listar', {
+    axios.post(`http://${vmIP.server_ip_port}/atleta/listar`, {
       email : email
     }).then((response) => response.data)
     .then((response) => {

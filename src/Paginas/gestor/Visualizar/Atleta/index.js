@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import "../../../../componentes/TabComponent/tabs.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Table from 'react-bootstrap/Table';
-import axios from 'axios'
+import axios from 'axios';
+import vmIP from "../../../../config/configPort.json";
+
 
 const Atleta = () => {
 
@@ -16,7 +18,7 @@ const Atleta = () => {
 
   let atleta = []
   useEffect(() => {
-    axios.post("http://${vmIP.server_ip_port}/listar",{
+    axios.post(`http://${vmIP.server_ip_port}/listar`,{
       cargo: 'Atleta'
     })
     .then((res) => {

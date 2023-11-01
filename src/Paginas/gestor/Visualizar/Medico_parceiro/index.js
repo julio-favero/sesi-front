@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {  Card, Col, Button, Table } from "react-bootstrap";
 import "../../../../componentes/TabComponent/tabs.css";
+import vmIP from "../../../../config/configPort.json";
+
 
 const Medico_parceiro = () => {
 
@@ -9,7 +11,7 @@ const Medico_parceiro = () => {
 
   let medicos = []
   useEffect(() => {
-    axios.post("http://${vmIP.server_ip_port}/listar",{
+    axios.post(`http://${vmIP.server_ip_port}/listar`,{
       cargo: 'Médico-Convidado'
     })
     .then((res) => {

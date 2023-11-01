@@ -6,7 +6,9 @@ import Button from "react-bootstrap/Button";
 import Axios from "axios";
 import { toast } from "react-toastify";
 import axios from "axios";
-import './style.css'
+import './style.css';
+import vmIP from "../../../config/configPort.json";
+
 
 const Solicitar = () => {
 
@@ -54,7 +56,7 @@ const Solicitar = () => {
   };
 
   const buscarAtleta = () => {
-    Axios.post("http://${vmIP.server_ip_port}/listarAtleta",{
+    Axios.post(`http://${vmIP.server_ip_port}/listarAtleta`,{
       cpf: cpf,
     })
     .then((res) => {
@@ -77,7 +79,7 @@ const Solicitar = () => {
   }
 
   const solicitarMedico = () => {
-    axios.post('http://${vmIP.server_ip_port}/solicitarMedico',{
+    axios.post(`http://${vmIP.server_ip_port}/solicitarMedico`,{
       nome: medicoValue,
     })
     .then((res) => {
@@ -91,7 +93,7 @@ const Solicitar = () => {
   let nomeMedico = [];
   let idsMedico = [];
   useEffect(() => {
-    axios.get('http://${vmIP.server_ip_port}/listarMedico')
+    axios.get(`http://${vmIP.server_ip_port}/listarMedico`)
     .then((res) => {
       for(let cont = 0; cont < res.data.length; cont++){
         nomeMedico.push(res.data[cont].nome);
@@ -103,7 +105,7 @@ const Solicitar = () => {
   }, [])
 
   const solicited = (id) => {
-    axios.put("http://${vmIP.server_ip_port}/solicitarAtleta",{
+    axios.put(`http://${vmIP.server_ip_port}/solicitarAtleta`,{
       cpf: cpf,
       idmedico: id
     })

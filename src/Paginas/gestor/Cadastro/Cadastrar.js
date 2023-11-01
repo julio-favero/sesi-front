@@ -7,6 +7,9 @@ import Gestor from "../Cadastro/Gestor/index";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import vmIP from "../../../config/configPort.json";
+
+
 const Cadastrar = () => {
   const [tela, setTela] = React.useState("Atleta");
 

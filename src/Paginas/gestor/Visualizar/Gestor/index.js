@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/esm/Table";
 
 import "../../../../componentes/TabComponent/tabs.css";
+import vmIP from "../../../../config/configPort.json";
+
 
 const Gestor = () => {
 
@@ -10,7 +12,7 @@ const Gestor = () => {
 
   let gestores = []
   useEffect(() => {
-    axios.post("http://${vmIP.server_ip_port}/listar",{
+    axios.post(`http://${vmIP.server_ip_port}/listar`,{
       cargo: 'Gestor'
     })
     .then((res) => {

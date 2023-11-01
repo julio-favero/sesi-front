@@ -7,6 +7,9 @@ import ErrorWrapper from "../../errors";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+import vmIP from "../../../../config/configPort.json";
+
+
 const Gestor = () => {
 
   // ---------------- Criação das Const ----------------
@@ -120,7 +123,7 @@ const Gestor = () => {
   };
 
   const cadastro = () =>{
-    axios.post("http://${vmIP.server_ip_port}/cadastro", {
+    axios.post(`{http://${vmIP.server_ip_port}/cadastro`, {
       cargo: "Gestor",
       cpf: parseInt(cpf),
       nome: primeiro_nome,

@@ -6,6 +6,8 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Axios from "axios";
+import vmIP from "../../../config/configPort.json";
+
 
 export default function FormDialog(props) {
   const [editValues, setEditValues] = useState({
@@ -26,7 +28,7 @@ export default function FormDialog(props) {
   };
 
   const handleEditGame = () => {
-    Axios.put("http://${vmIP.server_ip_port}/edit", {
+    Axios.put(`http://${vmIP.server_ip_port}/edit`, {
       id: editValues.id,
       name: editValues.name,
       gols: editValues.gols,

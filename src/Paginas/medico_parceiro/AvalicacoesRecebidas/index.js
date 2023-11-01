@@ -3,6 +3,8 @@ import './table.css';
 import { Button, Table } from 'react-bootstrap';
 import ExamesEnviados from '../ExamesEnviados'
 import axios from 'axios';
+import vmIP from "../../../config/configPort.json";
+
 
 function AvalicacoesRecebidas({ atleta }) {
 
@@ -15,7 +17,7 @@ function AvalicacoesRecebidas({ atleta }) {
 
 
   useEffect(() => {
-    axios.post('http://${vmIP.server_ip_port}/medicoConv/verAtletas', {
+    axios.post(`http://${vmIP.server_ip_port}/medicoConv/verAtletas`, {
       atletas : atleta
     })
     .then((response) => response.data)

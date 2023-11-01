@@ -7,6 +7,9 @@ import ErrorWrapper from "../../errors";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+import vmIP from "../../../../config/configPort.json";
+
+
 const Medico_parceiro = (props) => {
   const [cpf, setCpf] = useState("");
   const [error, setError] = useState([]);
@@ -68,7 +71,7 @@ const Medico_parceiro = (props) => {
   };
 
   const buscar = () => {
-    axios.post("http://${vmIP.server_ip_port}/listarTodos",{
+    axios.post(`http://${vmIP.server_ip_port}/listarTodos`,{
       cargo: props.cargo,
       cpf: cpf,
     })
@@ -92,7 +95,7 @@ const Medico_parceiro = (props) => {
   }
 
   const alterar = () => {
-    axios.put('http://${vmIP.server_ip_port}/alterar',{
+    axios.put(`http://${vmIP.server_ip_port}/alterar`,{
       cargo: props.cargo,
       cpf: cpf,
       nome: primeiro_nome,

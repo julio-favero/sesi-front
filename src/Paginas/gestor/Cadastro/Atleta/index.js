@@ -14,6 +14,8 @@ import { registerLocale, setDefaultLocale } from 'react-datepicker';
 import ptBR from 'date-fns/locale/pt-BR';
 import { format } from 'date-fns';
 
+import vmIP from "../../../../config/configPort.json";
+
 registerLocale('pt-BR', ptBR); // Registrar o calendário como BR
 setDefaultLocale('pt-BR'); // Definir o calendário como BR
 
@@ -283,7 +285,7 @@ setDefaultLocale('pt-BR'); // Definir o calendário como BR
 
   //  ---------------- Back-End CADASTRO ----------------
   const cadastro = () =>{
-    axios.post("http://${vmIP.server_ip_port}/cadastro", {
+    axios.post(`http://${vmIP.server_ip_port}/cadastro`, {
       cpf: parseInt(cpf),
       nome: primeiro_nome,
       senha: senha,

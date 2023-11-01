@@ -6,6 +6,8 @@ import { Formulario } from "../../../../componentes/Style/Formularios";
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import vmIP from "../../../../config/configPort.json";
+
 
 function Gestor(props) {
   const [primeiro_nome, setPrimeiro_nome] = useState("");
@@ -41,7 +43,7 @@ function Gestor(props) {
   };
 
   const buscar = () => {
-    axios.post("http://${vmIP.server_ip_port}/listarTodos",{
+    axios.post(`http://${vmIP.server_ip_port}/listarTodos`,{
       cargo: props.cargo,
       cpf: cpf,
     })
@@ -58,7 +60,7 @@ function Gestor(props) {
   }
 
   const deletar = () =>{
-    axios.post('http://${vmIP.server_ip_port}/deletar', {
+    axios.post(`http://${vmIP.server_ip_port}/deletar`, {
       cargo: props.cargo,
       cpf: cpf
     })

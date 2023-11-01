@@ -14,6 +14,9 @@ import { registerLocale, setDefaultLocale } from 'react-datepicker';
 import ptBR from 'date-fns/locale/pt-BR';
 import { format } from 'date-fns';
 
+import vmIP from "../../../../config/configPort.json";
+
+
 registerLocale('pt-BR', ptBR); // Registrar o calendário como BR
 setDefaultLocale('pt-BR'); // Definir o calendário como BR
 
@@ -183,7 +186,7 @@ const Atleta = (props) => {
 
   
   const buscar = () => {
-    axios.post("http://${vmIP.server_ip_port}/listarAtleta",{
+    axios.post(`http://${vmIP.server_ip_port}/listarAtleta`,{
       cpf: cpf,
     })
     .then((res) => {
@@ -214,7 +217,7 @@ const Atleta = (props) => {
   }
 
   const alterar = () => {
-    axios.put('http://${vmIP.server_ip_port}/alterar',{
+    axios.put(`http://${vmIP.server_ip_port}/alterar`,{
       cpf: cpf,
       nome: nome,
       modalidade: modalidade,

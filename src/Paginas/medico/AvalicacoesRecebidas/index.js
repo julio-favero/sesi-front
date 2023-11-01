@@ -4,6 +4,9 @@ import { Button, Table } from 'react-bootstrap';
 import ExamesEnviados from '../ExamesEnviados';
 import Axios from 'axios';
 
+import vmIP from "../../../config/configPort.json";
+
+
 function AvalicacoesRecebidas({idMedico}) {
 
   let array_nomes = []

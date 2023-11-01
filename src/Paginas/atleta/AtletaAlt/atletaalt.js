@@ -76,7 +76,7 @@ function AlterarPerfil() {
       toast.error("Houve um erro!");
     }
     else{
-      Axios.put("http://${vmIP.server_ip_port}/atleta/atualizarAtleta", {
+      Axios.put(`http://${vmIP.server_ip_port}/atleta/atualizarAtleta`, {
         email: email,
         tipo_tel: tipotel,
         telefone: numero
@@ -98,7 +98,7 @@ function AlterarPerfil() {
     let confirm_password = document.getElementById("confirm_password").value;
 
     if (password === confirm_password) {
-      Axios.put("http://${vmIP.server_ip_port}/atleta/atualizarAtleta", {
+      Axios.put(`http://${vmIP.server_ip_port}/atleta/atualizarAtleta`, {
         email: email,
         senha: senha,
         senha_nova: senha_nova
